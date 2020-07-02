@@ -1,19 +1,19 @@
 def number_to_text(number):
     number = str(int(number))
-    number_lenght = len(number)
+    number_length = len(number)
 
     single_numb = ["","մեկ","երկու","երեք","չորս","հինգ","վեց","յոթ","ութ","ինը"]
     ten_number = ["","տաս","քսան","երեսուն","քառասուն","հիսուն","վաթսուն","յոթանասուն","ութսուն","իննսուն"]
 
-    if number_lenght == 1:
+    if number_length == 1:
         number_text = single_numb[int(number)] if single_numb[int(number)] != "" else "0"
     elif number == '10':
         number_text = "տաս"
-    elif number_lenght == 2 and number[0] == '1':
+    elif number_length == 2 and number[0] == '1':
         number_text = "տասն" + single_numb[int(number[1])]
-    elif number_lenght == 2:
+    elif number_length == 2:
         number_text = ten_number[int(number[0])] + single_numb[int(number[1])]
-    elif number_lenght == 3:
+    elif number_length == 3:
         number_text = number_to_text(number[-3]) + " հարյուր " + number_to_text(number[-2:])
 
     return number_text
