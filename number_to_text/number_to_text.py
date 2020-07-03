@@ -34,10 +34,29 @@ def number_convert(numb):
 
     return numb_converted
 
+def number_float_convert(numb):
+    numb_str  = str(float(numb)).split('.')
+    numb_pre  = numb_str[0]
+    numb_suf  = numb_str[1][:3]
+    numb_suf_len  = len(numb_suf)
+    sufix     = ["","տասնորդական","հարյուրերորդական","հազարերորդական"]
+
+    if numb_suf != '0':
+        float_text = number_convert(numb_pre) + "ամբողջ " + number_convert(numb_suf) + sufix[numb_suf_len]
+
+    else:
+        float_text = number_convert(numb_pre)
+
+    return float_text
+
+
+
+
 num = input("Խնդրում ենք մուտքագրել 1-ից 12 նիշանոց թիվ։ ")
 while True:
     try:
-        print(number_convert(num))
+        #print(number_convert(num))
+        print(number_float_convert(num))
         break
     except:
         num = input("Կրկին փորձիր։ ")
